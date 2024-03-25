@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-->
+This file is part of GTFS Application.
+
+GTFS Application is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+GTFS Application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with GTFS Application. If not, see <https://www.gnu.org
+/licenses/>.
+-->
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <HBox alignment="CENTER" layoutY="424.0" prefHeight="33.0" prefWidth="335.0">
+         <children>
+            <TextField fx:id="searchBar" onAction="#searchBarAction" promptText="Search..." />
+            <SplitMenuButton mnemonicParsing="false" text="Search by...">
+               <items>
+                  <CustomMenuItem fx:id="searchByStopItem" mnemonicParsing="false" onAction="#searchByStopItemPress" text="Stop">
+                     <content>
+                        <RadioButton fx:id="searchByStopRadio" mnemonicParsing="false" selected="true" text="Stop">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchGroup" />
+                           </toggleGroup></RadioButton>
+                     </content>
+                  </CustomMenuItem>
+                  <CustomMenuItem fx:id="searchByRouteItem" mnemonicParsing="false" onAction="#searchByRouteItemPress" text="Route">
+                     <content>
+                        <RadioButton fx:id="searchByRouteRadio" mnemonicParsing="false" text="Route" toggleGroup="$searchGroup" />
+                     </content>
+                  </CustomMenuItem>
+                  <CustomMenuItem fx:id="searchByTripItem" mnemonicParsing="false" onAction="#searchByTripItemPress" text="Trip">
+                     <content>
+                        <RadioButton fx:id="searchByTripRadio" mnemonicParsing="false" text="Trip" toggleGroup="$searchGroup" />
+                     </content>
+                  </CustomMenuItem>
+               </items>
+            </SplitMenuButton>
+         </children>
+      </HBox>
+      <Accordion layoutX="27.0" layoutY="153.0" />
+      <TitledPane expanded="false" prefHeight="163.0" prefWidth="116.0" text="Options">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="85.0" prefWidth="85.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="127.0" prefWidth="106.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="importFileButton" mnemonicParsing="false" onAction="#importFileButtonPress" text="Import Files">
+                           <graphic>
+                              <Label alignment="CENTER" prefWidth="77.0" text="Import Files" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Button>
+                        <Separator prefHeight="5.0" prefWidth="200.0" />
+                        <Button fx:id="exportFileButton" mnemonicParsing="false" onAction="#exportFileButtonPress" text="Export Files">
+                           <graphic>
+                              <Label alignment="CENTER" prefWidth="77.0" text="Export Files" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Button>
+                        <Separator prefHeight="5.0" prefWidth="200.0" />
+                        <Button fx:id="editFilesButton" alignment="CENTER" mnemonicParsing="false" onAction="#editFilesButtonPress" prefHeight="27.0" prefWidth="96.0" text="Edit Files">
+                           <graphic>
+                              <Label alignment="CENTER" prefWidth="77.0" text="Edit Files" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </AnchorPane>
+         </content>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TitledPane>
+   </children>
+</Pane>
